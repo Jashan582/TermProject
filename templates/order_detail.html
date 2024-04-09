@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+    <div class="order-details">
+        <h2>Order Details (Order #{{ order.id }})</h2>
+        <p>Customer: 
+            <a href="{{ url_for('html.customer_detail', customer_id=order.customer_id) }}">
+                {{ order.customer.name }}
+            </a>
+        </p>
+        <p>Created: 
+            {{ order.created.strftime('%Y-%m-%d %H:%M:%S') if order.created else 'Not available' }}
+        </p>
+        <p>Processed: 
+            {{ order.processed.strftime('%Y-%m-%d %H:%M:%S') if order.processed else 'Not processed yet' }}
+        </p>
+        <h3>Items:</h3>
+        <ul>
+            {% for item in order.items %}
+                <li>
+                    {{ item.product.name }} - Price: {{ item.product.price | round(2) }}
+                    Ordered: {{ item.quantity }}
+                    Available: {{ item.product.available }}
+                </li>
+            {% endfor %}
+        </ul>
+        <p><strong>Estimated Total: {{ order.get_estimated_total() | round(2) }}</strong></p>
+        {% if not order.processed %}
+            <form method="POST" action="{{ url_for('html.process_order', order_id=order.id) }}">
+                <button type="submit">Process Order</button>
+            </form>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('html.order_delete', order_id=order.id) }}">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+{% endblock %}
+

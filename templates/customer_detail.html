@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Customer: {{ customer.name }}</h2>
+    <p>Phone: {{ customer.phone }}</p>
+    <p>Balance: {{ customer.balance | round(2) }}</p>
+    <h3>Orders:</h3>
+    <ul>
+        {% for order in customer.orders %}
+            <li>
+                <a href="{{ url_for('html.order_detail', order_id=order.id) }}">
+                    Order #{{ order.id }} - Total: {{ order.get_estimated_total() | round(2) }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

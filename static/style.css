@@ -1,0 +1,96 @@
+/* custom.css */
+
+/* Improve typography */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+  }
+  
+  /* Style the navbar */
+  .navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Navbar links */
+  .nav-link {
+    color: #555;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    color: #1a1a1a;
+  }
+  
+  /* Active state for nav link */
+  .navbar .nav-item.active .nav-link,
+  .navbar .nav-item.active .nav-link:hover,
+  .navbar .nav-item.active .nav-link:focus {
+    color: #007bff; /* Use a color that matches your brand */
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:active {
+    background-color: #004299;
+    border-color: #003570;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Custom button */
+  .btn-custom {
+    background-color: #76b852; /* Green */
+    color: white;
+  }
+  
+  .btn-custom:hover {
+    background-color: #689f38;
+  }
+  
+  /* Page headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+  
+  /* Link colors */
+  a {
+    color: #0056b3;
+  }
+  
+  a:hover {
+    color: #004299;
+  }
+  
+  /* Custom card design */
+  .card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  /* Custom form input */
+  .form-control {
+    border: 1px solid #cccccc;
+    border-radius: 0.25rem;
+  }
+  
+  .form-control:focus {
+    border-color: #76b852;
+    box-shadow: none;
+  }
+  

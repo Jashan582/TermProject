@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1>Orders</h1>
+    <div class="list-group">
+        {% for order in orders %}
+            <a href="{{ url_for('html.order_detail', order_id=order.id) }}" class="list-group-item list-group-item-action">
+                Order #{{ order.id }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
